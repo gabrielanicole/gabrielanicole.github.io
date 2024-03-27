@@ -4,7 +4,7 @@ import type { HTMLAttributes } from "astro/types";
 import { getFormattedDate } from "@/utils";
 
 type Props = HTMLAttributes<"time"> & {
-	date: Date;
+	date: string;
 	dateTimeOptions?: Intl.DateTimeFormatOptions;
 };
 
