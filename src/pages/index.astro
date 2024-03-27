@@ -4,83 +4,125 @@ import PostPreview from "@/components/blog/PostPreview.astro";
 import PageLayout from "@/layouts/Base.astro";
 import { getAllPosts, sortMDByDate } from "@/data/post";
 
+import type { HTMLTag, Polymorphic } from "astro/types";
+
+type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> ;
+const { as: Tag = "div"} = Astro.props;
+
+
 const MAX_POSTS = 10;
 const allPosts = await getAllPosts();
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 
-const cactusTech: { desc: string; href: string; title: string }[] = [
+const cactusTech: { desc: string; year: string; title: string, lieu:string }[] = [
 	{
-		desc: "Build fast websites, faster.",
-		href: "https://astro.build",
-		title: "Astro",
+		desc: "Cadre d’évaluation continue pour syst`emes de recherche d’information.",
+		year: "2023",
+		title: "DOCTORAT en INFORMATIQUE",
+		lieu: "(03/2020 - 10/2023) LIG - UGA, Grenoble France",
 	},
 	{
-		desc: "Rapidly build modern websites without ever leaving your HTML.",
-		href: "https://tailwindcss.com",
-		title: "Tailwind CSS",
+		desc: "Prédiction des blessures en course `a pied chez le coureur amateur `a partir des donn ́ees desuivi d’activit ́e physique",
+		year: "2020",
+		title: "Magister en Informatique",
+		lieu: "(03/2018 - 03/2020) UACh, Valdivia Chile"
 	},
 	{
-		desc: "Simple and easy-to-use markup language.",
-		href: "https://www.markdownguide.org/",
-		title: "Markdown",
+		desc: "Proposition  m ́ethodologique  pour  la  caract ́erisation  de  la  mobilit ́e  urbaine  en  relationavec le ph ́enom`ene de s ́egr ́egation r ́esidentielle :  une  ́etude de cas `a grande  ́echelle au Chili bas ́eesur des donn ́ees de t ́el ́ephonie mobile et des r ́eseaux complexe",
+		year: "2018",
+		title: "Ingénieure Civile en Informatique",
+		lieu: "(03/2013 - 11/2018) UACh, Valdivia Chile"
+	},
+	
+];
+
+const expPro: { desc: string; year: string; title: string, lieu:string }[] = [
+	
+	{
+		desc: "Poste  de  jeune  chercheuse  post-doctoral  du  projet  MAKE  NMT-VIZ  centr ́e  sur  l’explicabilit ́edes syst`emes de Traduction Automatique Neuronale au sein de l’ ́equipe GETALP au Laboratoired’informatique de Grenoble (LIG). ", 
+		year: "2023",
+		title: "Contrat post-doctoral GETALP ",
+		lieu: "(11/2023 - 09/2024) LIG - UGA, Grenoble France",
 	},
 	{
-		desc: "Markdown for the component era.",
-		href: "https://mdxjs.com/",
-		title: "MDX",
+		desc: "", 
+		year: "2020",
+		title: "Ingénieure Informatique",
+		lieu: "(11/2018 - 01/2020) West Ingeniería, Valdivia Chile"
 	},
 	{
-		desc: "Generating png Open Graph images for blog posts.",
-		href: "https://github.com/vercel/satori",
-		title: "Satori",
+		desc: "Junior-Entreprise spécialisée dans le développement de solutions logicielles",
+		year: "2018",
+		title: "Coordinatrice G ́en ́erale Austral404",
+		lieu: "(2017 - 2018) UACh, Valdivia Chile"
+	},
+
+		{
+		desc: "Laboratoire d’ecoinformatique",
+		year: "2017",
+		title: "Assistante de Recherche",
+		lieu: "(2016 - 2017) UACh, Valdivia Chile"
 	},
 	{
-		desc: "A fully static search library.",
-		href: "https://pagefind.app/",
-		title: "Pagefind",
-	},
-	{
-		desc: "An easy to use Icon component for Astro.",
-		href: "https://github.com/natemoo-re/astro-icon#readme",
-		title: "Astro Icon",
-	},
-	{
-		desc: "Highly customisable source code & syntax highlighter",
-		href: "https://expressive-code.com/",
-		title: "Expressive Code",
+		desc: "", 
+		year: "2016",
+		title: "Test logiciel et gestion de serveurs CI",
+		lieu: "(2016 - 2017) Acción STEM, Valdivia Chile"
 	},
 ];
+
+
+
+
 ---
 
 <PageLayout meta={{ title: "Home" }}>
 	<section>
 		<h1 class="title mb-6">Presentation !</h1>
 		<p class="mb-4">
-			I'm commputer scientist with a PhD in Informatics. Currently I'm doing a postdoc in the GETALP team at LIG.  working with translatiors to explain neural machine translation reasoning.
-			I came from the rainy south of Chile.
+			I'm commputer scientist with a PhD in Informatics. Currently I'm doing a postdoc in the GETALP team at LIG working with translatiors to explain neural machine translation reasoning.
+			I come from the rainy south of Chile.
 
 		</p>
 		<SocialList />
 	</section>
 
-	<section class="mt-16">
-		<h2 class="title mb-4 text-xl">Technologies</h2>
-		<dl class="space-y-4">
+		<section class="mt-16">
+		<h3 class="title mb-6"> Parcours Universitaire <h3>
+			<ul class="space-y-4">
 			{
-				cactusTech.map(({ desc, href, title }) => (
-					<div class="flex flex-col gap-2 md:flex-row">
-						<dt>
-							<span class="flex">
-								<a class="cactus-link" href={href} rel="noopener noreferrer" target="_blank">
-									{title}
-								</a>
-								:
-							</span>
-						</dt>
+				cactusTech.map(({ title, desc, year, lieu }) => (
+				<li class="flex flex-col gap-x-2 sm:flex-row">
+					<a class="min-w-120px text-gray-600 dark:text-gray-400"> {year} </a>
+					<Tag>
+						<a class="cactus-link" data-astro-prefetch href={`/posts/${title}/`}>
+							{title}
+						</a>
+						<dd>{lieu}</dd>
 						<dd>{desc}</dd>
-					</div>
-				))
-			}
-		</dl>
+					</Tag>
+				</li>
+			))}
+		</ul>
+	</section>
+
+
+	<section class="mt-16">
+		<h3 class="title mb-6"> Experiences Profesionnelles <h3>
+			<ul class="space-y-4">
+			{
+				expPro.map(({ title, desc, year, lieu }) => (
+				<li class="flex flex-col gap-x-2 sm:flex-row">
+					<a class="min-w-120px text-gray-600 dark:text-gray-400" > {year} </a>
+					<Tag>
+						<a class="cactus-link" data-astro-prefetch href={`/posts/${title}/`}>
+							{title}
+						</a>
+						<dd>{lieu}</dd>
+						<dd>{desc}</dd>
+					</Tag>
+				</li>
+			))}
+		</ul>
 	</section>
 </PageLayout>
