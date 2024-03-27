@@ -1,0 +1,263 @@
+---
+import SocialList from "@/components/SocialList.astro";
+import PostPreview from "@/components/blog/PostPreview.astro";
+import PageLayout from "@/layouts/Base.astro";
+import { getAllPosts, sortMDByDate } from "@/data/post";
+
+import type { HTMLTag, Polymorphic } from "astro/types";
+
+type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> ;
+const { as: Tag = "div"} = Astro.props;
+
+import FormattedDate from "@/components/FormattedDateSimple.astro";
+
+const MAX_POSTS = 10;
+const allPosts = await getAllPosts();
+const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
+
+const cactusTech: { desc: string; href: string; title: string }[] = [
+	{
+		desc: "Build fast websites, faster.",
+		href: "https://astro.build",
+		title: "Astro",
+	},
+	{
+		desc: "Rapidly build modern websites without ever leaving your HTML.",
+		href: "https://tailwindcss.com",
+		title: "Tailwind CSS",
+	},
+	{
+		desc: "Simple and easy-to-use markup language.",
+		href: "https://www.markdownguide.org/",
+		title: "Markdown",
+	},
+	{
+		desc: "Markdown for the component era.",
+		href: "https://mdxjs.com/",
+		title: "MDX",
+	},
+	{
+		desc: "Generating png Open Graph images for blog posts.",
+		href: "https://github.com/vercel/satori",
+		title: "Satori",
+	},
+	{
+		desc: "A fully static search library.",
+		href: "https://pagefind.app/",
+		title: "Pagefind",
+	},
+	{
+		desc: "An easy to use Icon component for Astro.",
+		href: "https://github.com/natemoo-re/astro-icon#readme",
+		title: "Astro Icon",
+	},
+	{
+		desc: "Highly customisable source code & syntax highlighter",
+		href: "https://expressive-code.com/",
+		title: "Expressive Code",
+	},
+];
+
+
+
+const myPubs : {title,author, year }[] = [
+{
+title :" Exploratory Visualization Tool for the Continuous Evaluation of Information Retrieval Systems ",
+  author:"Gabriela Gonzalez-Saez and Galuvsvcakova, Petra and Deveaud, Romain and Goeuriot, Lorraine and Mulhem, Philippe ",
+  booktitle:"Proceedings of the 46th International ACM SIGIR Conference on Research and Development in Information Retrieval",
+  year:"10 Sept 2023"},
+{
+  title:"LongEval-Retrieval: French-English Dynamic Test Collection for Continuous Web Search Evaluation",
+  author:"Galuvsvcakova, Petra and Deveaud, Romain and Gabriela Gonzalez-Saez and Mulhem, Philippe and Goeuriot, Lorraine and Piroi, Florina and Popel, Martin",
+    booktitle:"Proceedings of the 46th International ACM SIGIR Conference on Research and Development in Information Retrieval [Ranking A*]",
+  year:"2023"},
+
+{
+  title:"Towards the evaluation of Information Retrieval Systems on evolving datasets with pivot systems",
+  author:"Gabriela Gonzalez-Saez and Philippe Mulhem and Lorraine Goeuriot",
+  booktitle:"International Conference of the Cross-Language Evaluation Forum for European Languages [Ranking B2] ",
+  year:"10 Sept 2023",
+  organization:"Springer"},
+
+
+{
+author:" ECIR 2024 [Ranking A] and Alkhalifa, Rabab and Borkakoty, Hsuvas and Deveaud, Romain and El-Ebshihy, Alaa and Espinosa-Anke, Luis and Fink, Tobias and Gabriela Gonzalez-Saez and Galuščáková, Petra and Goeuriot, Lorraine and Iommi, David and Liakata, Maria and Madabushi, Harish Tayyar and Medina-Alias, Pablo and Mulhem, Philippe and Piroi, Florina and Popel, Martin and Servan, Christophe and Zubiaga, Arkaitz", 
+title:"LongEval: Longitudinal Evaluation of Model Performance at CLEF 2024",
+booktitle:"Advances in Information Retrieval",
+year:"2024",
+publisher:"Springer Nature Switzerland",
+address:"Cham",
+pages:"60--66",
+abstract:"This paper introduces the planned second LongEval Lab, part of the CLEF 2024 conference. The aim of the lab's two tasks is to give researchers test data for addressing temporal effectiveness persistence challenges in both information retrieval and text classification, motivated by the fact that model performance degrades as the test data becomes temporally distant from the training data. LongEval distinguishes itself from traditional IR and classification tasks by emphasizing the evaluation of models designed to mitigate performance drop over time using evolving data. The second LongEval edition will further engage the IR community and NLP researchers in addressing the crucial challenge of temporal persistence in models, exploring the factors that enable or hinder it, and identifying potential solutions along with their limitations.",
+isbn:"978-3-031-56072-9"
+},
+
+{
+  title: "Predicting Retrieval Performance Changes in Evolving Evaluation Environments",
+  author: "CLEF 2023 [Ranking B2], and Alaa El-Ebshihy, and Tobias Fink, and Gabriela Gonzalez-Saez, and Florina Piroi, and Petra Galuščáková, and David Iommi, and Lorraine Goeuriot, and Philippe Mulhem ",
+  booktitle: "International Conference of the Cross-Language Evaluation Forum for European Languages",
+  year: "2023",
+  organization: "Springer"
+},
+
+
+
+{
+  title: "LongEval: Longitudinal Evaluation of Model Performance at CLEF 2023",
+  author: " ECIR 2023 [Ranking A] and Alkhalifa, Rabab and Bilal, Iman and Borkakoty, Hsuvas and Camacho-Collados, Jose and Deveaud, Romain and El-Ebshihy, Alaa and Espinosa-Anke, Luis and Gabriela Gonzalez-Saez and Galuščáková, Petra and Goeuriot, Lorraine and others",
+  booktitle: "Advances in Information Retrieval: 45th European Conference on Information Retrieval, ECIR 2023, Dublin, Ireland, April 2--6, 2023, Proceedings, Part III",
+  pages: "499--505",
+  year: "2023",
+  organization: "Springer"
+},
+
+
+
+{
+  title: "Continuous Result Delta Evaluation of IR Systems",
+  author: "SIGIR 2022 [Ranking A*] and Gabriela Gonzalez-Saez",
+  booktitle: "Proceedings of the 45th International ACM SIGIR Conference on Research and Development in Information Retrieval  - Doctoral Consortium, July 11--15, 2022, Madrid, Spain", 
+  year: "2022", 
+},
+
+
+{
+  title: "Overview of the CLEF eHealth Evaluation Lab 2021",
+  author: "CLEF 2021 [Ranking B2], and Hanna Suominen and  Lorraine Goeuriot  and Liadh Kelly  and Laura Alonso Alemany  and Elias Bassani  and Nicola Brew-Sam  and Viviana Cotik and  Darío Filippo  and Gabriela González-Sáez  and Franco Luque  and Philippe Mulhem and  Gabriella Pasi and Roland Roller and  Sandaru Seneviratne  and Rishabh Upadhyay and  Jorge Vivaldi and Marco Viviani and Chenchen Xu",
+  booktitle: "International Conference of the Cross-Language Evaluation Forum for European Languages",
+  year: "2021",
+  organization: "Springer"
+},
+
+
+{
+  title: "CLEF eHealth Evaluation Lab 2021",
+  author: "ECIR 2021 Ranking A, and L. Goeuriot and H. Suominen and Liadh Kelly and L. Alemany and Nicola Brew-Sam and Viviana Cotik and D. Filippo and Gabriela González Sáez and Franco Luque and P. Mulhem and G. Pasi and Roland Roller and Sandaru Seneviratne and J. Vivaldi and Marco Viviani and Chenchen Xu",
+  booktitle: "ECIR",
+  year: "2021"
+}
+
+,
+
+
+{
+  title: "Overview of the CLEF eHealth evaluation lab 2020",
+  author: "CLEF 2020 [Ranking B2] and Goeuriot, Lorraine and Suominen, Hanna and Kelly, Liadh and Miranda-Escalada, Antonio and Krallinger, Martin and Liu, Zhengyang and Pasi, Gabriella and Gabriela Gonzalez-Saez and Viviani, Marco and Xu, Chenchen",
+  booktitle: "International Conference of the Cross-Language Evaluation Forum for European Languages ",
+  pages: "255--271",
+  year: "2020",
+  organization: "Springer", 
+},
+
+
+
+
+{
+  title: "Vers l'évaluation continue des systemes de recherche d'information.",
+  author: "Galuscakova, Petra and Deveaud, Romain and Gabriela Gonzalez-Saez and Mulhem, Philippe and Goeuriot, Lorraine and Piroi, Florina and Popel, Martin",
+  booktitle: "18e Conférence en Recherche d'Information et Applications--16e Rencontres Jeunes Chercheurs en RI--30e Conférence sur le Traitement Automatique des Langues Naturelles--25e Rencontre des étudiants Chercheurs en Informatique pour le Traitement Automatique des Langues [Ranking C]",
+  pages: "202--206",
+  year: "2023",
+  organization: "ATALA"
+},
+
+{
+  title: "Multi-element protocol for IR experiments stability: Application to the TREC-COVID test collection",
+  author: "Gabriela Gonzalez-Saez and Philippe Mulhem and Lorraine Goeuriot",
+  booktitle: "CIRCLE 2022 [Ranking C], July 4-7, 2022 Samatan, Gers, France", 
+  year: "2022",
+}
+,
+{
+  title: "Addressing Different Evaluation Environments for Information Retrieval through Pivot Systems",
+  author: "Gabriela González-Saez and Goeuriot, Lorraine and Mulhem, Philippe", 
+  booktitle: "CORIA [Ranking C]",
+  year: "2021", 
+}
+,
+
+
+{
+  title: "Towards Result Delta Prediction Based on Knowledge Deltas for Continuous IR Evaluation",
+  author: "Gabriela Gonzalez-Saez and El-Ebshihy, Alaa and Fink, Tobias and Galuščáková, Petra and Piroi, Florina and Iommi, David and Goeuriot, Lorraine and Mulhem, Philippe",
+  booktitle: "Proceedings of the workshop QPP++ 2023: Query Performance Prediction and Its Evaluation in New Tasks, co-located with The 45th European Conference on Information Retrieval (ECIR)",
+  pages: "20--24",
+  year: "2023", 
+},
+
+{
+  title: "The MAKE-NMTViz System Description for the WMT23 Literary Task",
+  author: "Lopez, Fabien and Gabriela Gonzalez-Saez and Hansen, Damien and Nakhlé, Mariam and Namdarzadeh, Behnoosh and Dinarelli, Marco and Esperancaa-Rodier, Emmanuelle and He, Sui and Mohseni, Sadaf and Rossi, Caroline and others",
+  year: "2023", 
+    booktitle: "WMT",
+},
+
+{
+  title: "Université Grenoble Alpes/LIG at TREC Deep Learning Track 2022",
+  author: "Galuščáková, Petra and Albarede, Lucas and Gabriela Gonzalez-Saez and Mannion, Aidan and Mulhem, Philippe and Quénot, Georges",
+  booktitle: "Thirty-First Text REtrieval Conference, TREC 2022 [Ranking A2]",
+  number: "500-338",
+  year: "2022"
+},
+
+
+{
+  title: "Consumer Health Search at CLEF eHealth 2021",
+  author: " Lorraine Goeuriot  and Gabriella Pasi  and Hanna Suominen and Elias Bassani  and Nicola Brew-Sam and  Gabriela Gonzalez-Saez and  Rishabh Gyanendra Upadhyay and  Liadh Kelly  and Philippe Mulhem and  Sandaru Seneviratne  and  Marco Viviani and Chenchen Xu",
+  booktitle: "CLEF 2021 Evaluation Labs and Workshop: Online Working Notes, CEUR-WS",
+  year: "2021"
+},
+
+{
+  title: "Overview of the CLEF eHealth 2020 Task 2: Consumer Health Search with Ad Hoc and Spoken Queries.",
+  author: "Goeuriot, Lorraine and Suominen, Hanna and Kelly, Liadh and Liu, Zhengyang and Pasi, Gabriella and Gabriela  Gonzalez-Saez and Viviani, Marco and Xu, Chenchen and others",
+  booktitle: "CLEF (Working Notes)",
+  year: "2020"
+},
+
+{
+  title: "LIG-Health at Adhoc and Spoken IR Consumer Health Search: expanding queries using UMLS and FastText",
+  author: "P. Mulhem and Gabriela González Sáez and Aidan Mannion and D. Schwab and Jibril Frej",
+  booktitle: "CLEF",
+  year: "2020"
+}]
+
+
+---
+
+<PageLayout meta={{ title: "Home" }}>
+	<section>
+		<h1 class="title mb-6">Publications</h1>
+		<p class="mb-4">
+			You can find the up-to-date list of publications in 
+			<a class="cactus-link" data-astro-prefetch href={`/posts/hal/`}>
+							my scholar 
+			</a> 
+							and 
+			<a class="cactus-link" data-astro-prefetch href={`HAL`}>HAL
+			</a> 
+			 profiles. 
+		</p>
+
+	</section>
+
+		<section class="mt-16">
+
+			<ul class="space-y-4">
+			{
+				myPubs.map(({ title, author, year }) => (
+
+				<li class="flex flex-col gap-x-2 sm:flex-row">
+					<FormattedDate class="min-w-[120px] text-gray-600 dark:text-gray-400" date={year} />
+					<Tag>
+						<a class="cactus-link" data-astro-prefetch href={`/posts/${title}/`}>
+							{title}
+						</a>
+						<dd>{author}</dd>
+					</Tag>
+				</li>
+				
+			))}
+		</ul>
+	</section>
+</PageLayout>
