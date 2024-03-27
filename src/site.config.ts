@@ -34,15 +34,15 @@ export const menuLinks: Array<{ title: string; path: string }> = [
 	},
 	{
 		title: "Teaching",
-		path: "/about/",
+		path: "/posts/teaching/",
 	},
+	// {
+	// 	title: "Projects",
+	// 	path: "/posts/projects",
+	// },
 	{
 		title: "Publications",
 		path: "/publications/",
-	},
-	{
-		title: "Teaching",
-		path: "/posts/teaching/",
 	},
 ];
 
