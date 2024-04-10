@@ -28,7 +28,7 @@ cours de 4 TP (12heqTD pour le semestre 9 de Ensimag, filière Ingénierie pour 
   - [Topk & Beam Search](https://huggingface.co/spaces/gabrielanicole/MNV-beam_search)
   - [Attention visualization](https://huggingface.co/spaces/gabrielanicole/makenmtviz)
   - [Attribution](https://huggingface.co/spaces/gabrielanicole/mnv_attr)
-- [Guidelines for demos][https://docs.google.com/presentation/d/1rjLsc1deC2wKk6kdjaV17o_TnoHxbRX-kPLn1264zw0/edit?usp=sharing]
+- Guidelines for demos: [Drive](https://docs.google.com/presentation/d/1rjLsc1deC2wKk6kdjaV17o_TnoHxbRX-kPLn1264zw0/edit?usp=sharing)
 
 ## Medical Text Mining
 
