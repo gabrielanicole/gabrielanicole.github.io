@@ -1,6 +1,6 @@
 ---
 title: "Teaching"
-description: "description of teaching activities in Chile and France "
+description: "Description of teaching activities in Chile and France "
 publishDate: "22 Feb 2023"
 updatedDate: 22 Jan 2024
 tags: []
@@ -12,10 +12,10 @@ tags: []
 cours de 4 TP (12heqTD pour le semestre 9 de Ensimag, filière Ingénierie pour la finance (IF)) de Traitement automatique du langage naturel (TAL) pour la fouille de texte de l'axe de Apprentissage pour la finance.  Dans ce cours, j'enseigne d'abord les bases techniques lors d'un TP d'introduction à la manipulation de données textuelles écrites en français, suivi de la mise en pratique d'un système de traduction automatique neuronal (entraînement, traduction/inférence et évaluation), ainsi que l'analyse de données textuelles avec des représentations de plongement de mots (BERT) et la classification d'entités nommées (Hidden Markov Models). Dans le cadre de ce cours, j'ai dû mettre à jour le matériel et corriger chaque rendu de travail.
 
 **Supports:** 
-- TP Intro : [Colab](www.colab.com)
-- TP NMT : [Colab]
-- TP BERT : [Colab]
-- TP HMM : [Colab]
+- TP Intro : [Drive + Colab](https://drive.google.com/drive/folders/1eVr6gtj7Ibke6t4czHoumjNjAA9S32bI?usp=sharing)
+- TP NMT : [Drive](https://drive.google.com/file/d/1mhiPDr5uVP8m8ZXfOL7sdvNkVIlFGuRC/view?usp=sharing) 
+- TP BERT : [Colab](https://drive.google.com/file/d/19NVtDvq_QDTM-0YvkoufUeIflxw63KYi/view?usp=sharing)
+- TP HMM : [Colab](https://drive.google.com/file/d/1RS_hHl8TeTuzWjyqwNs2blsyLfW4B0ui/view?usp=sharing)
 
 
 ## Explicabilité TAN
@@ -23,7 +23,7 @@ cours de 4 TP (12heqTD pour le semestre 9 de Ensimag, filière Ingénierie pour 
 4heqTD de CM dans le cadre du cours d'Introduction à la traduction automatique (M1 TSM semestre 8, UFR SoCLE), cours créé à partir de mon travail post-doctoral sur l'explicabilité de la traduction automatique. J'ai été responsable de la création de matériel pédagogique et du développement de démonstrations en ligne pour que les étudiants comprennent les différentes méthodes d'explicabilité pertinentes pour la traduction automatique neuronal. 
 
 **Supports:**
-- Slides : [MAKENMTVIS](slides)
+- Slides : [MAKENMTVIS](https://docs.google.com/presentation/d/1TgBQ5eiqX_-DFiwK6gAJEuNncrijStpEkrhTmk7AX68/edit?usp=sharing)
 - Demos:
   - [Topk & Beam Search](https://huggingface.co/spaces/gabrielanicole/MNV-beam_search)
   - [Attention visualization](https://huggingface.co/spaces/gabrielanicole/makenmtviz)
@@ -35,10 +35,10 @@ cours de 4 TP (12heqTD pour le semestre 9 de Ensimag, filière Ingénierie pour 
 Le cours en ligne (sur UNESS.fr) de Medical Text Mining fait partie du parcours du Master Artificial Intelligence for One Health (AI4OH) de l'Institut Multidisciplinaire d'Intelligence Artificielle (MIAI). Dans ce cours de master suivi en distanciel, je fais partie de l'équipe ayant conçu le cours et enseigné trois TP (3heqTP) en appliquant la recherche d'information au domaine médical. J'ai créé les support en format de notebook python exécutable d'une durée 3h pour chaque TP, j'ai du répondre aux questions des étudiants dans un forum et organiser une séance en visio de question réponse avec les étudiants pour chaque TP. J'étais également responsable du CM (3heqTD) sur la Recherche d'Information Sémantique appliquée aux données médicales, ce CM est dispensé sous la forme de capsule video. 
 
 **Supports:**
-- TP1 : [Introduction](Colab)
-- TP2 : [Information Retrieval](Colab)
-- TP3 : [Semantic Information Retrieval](Colab)
-<!-- - Semantic Information Retrieval [capsule](Drive)  -->
+- TP1 : Introduction [Colab](https://drive.google.com/file/d/1m5-I00PCp8yscpVMZmMv9Qkuhcjxi8-z/view?usp=sharing)
+- TP2 : Information Retrieval [Colab](https://drive.google.com/file/d/1g4yqQxT8aqaF4J0aO3DEAZql8dgy7tb9/view?usp=sharing)
+- TP3 : Semantic Information Retrieval [Colab](https://drive.google.com/file/d/1aMAb9DSaZRGNFwNUbpr-jNw0PwIzcPOy/view?usp=sharing)
+- Semantic Information Retrieval [Drive](https://drive.google.com/file/d/1GhAkZ2alLwvk0LpenbzHwWseWhRrJaSS/view?usp=sharing)
 
 ## Automates
 
